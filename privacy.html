@@ -7,59 +7,44 @@
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 640px; margin: 3rem auto; padding: 0 1.5rem; line-height: 1.6; color: #2b1d16; background: #fbf4ea; }
   h1 { margin-bottom: 0.25rem; }
-  h2 { font-size: 1.05rem; margin-top: 1.6rem; }
-  a { color: #8a5a30; }
-  .tag { color: #8a5a30; font-size: 0.9rem; }
+  h2 { font-size: 1.25rem; margin-top: 2rem; }
+  a { color: #8a5a30; text-underline-offset: 0.15em; }
+  a:focus-visible { outline: 2px solid #8a5a30; outline-offset: 3px; }
+  code { overflow-wrap: anywhere; }
 </style>
 </head>
 <body>
-<h1>Brew Crew</h1>
-<p class="tag">Privacy Policy — last updated July 29, 2026</p>
+<h1>Brew Crew Privacy Policy</h1>
+<p>Updated October 12, 2026</p>
+<p><a href="https://brewcrew.creamcoff.com/bg/privacy/tr" lang="tr" hreflang="tr">Türkçe</a></p>
+<p>This policy describes Brew Crew's game, optional gameplay statistics, diagnostic information and connected features. For privacy questions or requests, contact <a href="mailto:can@creamcoff.com">can@creamcoff.com</a>.</p>
 
-<p><strong>Brew Crew never collects your name, email, contacts, location, photos, or any
-personal identity — and never tracks you across other apps or websites.</strong></p>
-
-<h2>What stays on your device</h2>
+<h2>Gameplay statistics and diagnostics</h2>
+<p>Gameplay statistics are enabled by default. When enabled, the game sends events to our first-party analytics service at <code>brewcrew.creamcoff.com</code> to understand gameplay, improve the game and diagnose reliability problems. These events include:</p>
 <ul>
-  <li>All game progress (levels, coins, café layout, settings) is stored on your device.</li>
-  <li>If you're signed in to iCloud, your save also syncs through <em>your own</em> Apple
-      iCloud account so it follows you between your devices. We run no account system and
-      cannot see your save.</li>
+  <li>An app-generated random installation identifier, event and session identifiers, event times, platform, app version and build.</li>
+  <li>Game interactions such as sessions, tutorial progress, shifts, levels, virtual currency activity and furniture viewing, purchases and placement. Some new events are available only in newer builds.</li>
+  <li>Diagnostic counts and performance summaries. iOS can report crash/hang counts and launch, responsiveness and memory summaries; Android currently reports crash counts.</li>
 </ul>
+<p>The random identifier lets us connect events from the same app installation. It is pseudonymous, not an advertising identifier or a claim that the data is anonymous. It may persist through a device backup or restore. Analytics events do not include your name, email, payment-card details, raw purchase tokens or raw crash stacks. We do not use these events for advertising across other companies' apps or sell them to data brokers.</p>
+<p>In Settings, turn off <strong>Gameplay stats</strong> (called <strong>Anonymous gameplay stats</strong> in older builds) to stop collection and sending through this event pipeline and clear its pending on-device queue. An in-flight request may already have reached the server. Turning the setting off does not erase events already stored on the server. The game remains playable with this setting off.</p>
+<p>Crash reports and a bounded gameplay diagnostic log are also recorded locally on the device. Local diagnostic recording continues when Gameplay stats is off; raw diagnostic files are not automatically uploaded by these components. If you choose to provide files to support, review their contents first.</p>
 
-<h2>Anonymous gameplay statistics</h2>
-<p>To balance the game (level difficulty, economy tuning, crash rates), Brew Crew sends
-us <em>anonymous</em> gameplay events — things like "a shift was won", "a level took 30
-moves", session lengths, and crash reports via Apple's MetricKit.</p>
-<ul>
-  <li>These events are tied only to a <strong>random install ID</strong> (a coin-flip
-      identifier created on first launch) — never to your name, email, device serial,
-      or advertising ID. We could not identify you from this data if we tried.</li>
-  <li>They go to our own server in the EU. There are <strong>no third-party analytics,
-      advertising, or tracking SDKs</strong> in the app — none.</li>
-  <li>Data is automatically deleted after 180 days.</li>
-  <li>You can turn this off anytime in <em>Settings → Anonymous gameplay stats</em>;
-      switching it off also erases anything queued on your device.</li>
-</ul>
+<h2>Game saves and connected services</h2>
+<p>Your game progress, café arrangement, settings and saved playlist links are stored on your device. On iOS, supported save data can synchronize through Apple's iCloud key-value service when your Apple account is available. The iOS game can also submit scores through Game Center when authenticated. Apple's account and service settings govern these features. Android currently has a local game save; there is no Brew Crew iCloud or cross-device account-save service on Android. Operating-system backups may retain or restore app data where enabled.</p>
+<p>The game fetches remote game configuration from our service even when Gameplay stats is off. These configuration requests do not include the analytics installation identifier in their request body or URL. Network and hosting providers receive connection information, including IP addresses, to deliver and protect these requests; infrastructure access logs may retain connection metadata. We do not use this information to infer your location for gameplay analytics.</p>
+<p>Music links open Spotify only when you choose them. Spotify handles that activity under its own policies. Reminders use the device's notification system and its permission settings.</p>
 
 <h2>Purchases</h2>
-<p>Coin packs are processed entirely by Apple. We never see your payment details — we
-only record the same anonymous event as above (which pack, tied to the random install ID).</p>
+<p>Where purchases are offered in a released build, Apple or Google processes payment through its store. The game receives product and transaction information to deliver virtual items and recover unfinished transactions. Payment-card details are handled by the store, not Brew Crew. Virtual currency and item activity can appear in gameplay statistics when enabled.</p>
+<p>The prepared authenticated purchase-delivery backend is not active for players. Before activating account-backed purchase delivery, we will update this policy and the relevant store disclosures to describe account identifiers, purchase verification, recovery and retention. An analytics identifier is not purchase authentication.</p>
 
-<h2>Music Corner</h2>
-<p>Tapping a playlist opens the Spotify app or website. Nothing about you is sent —
-it's an ordinary link. Spotify's own privacy policy applies inside Spotify.</p>
+<h2>Storage, access and deletion</h2>
+<p>Gameplay events are stored in our PostgreSQL analytics service. Access to individual events and exports is restricted. Raw events are scheduled for deletion after they are older than 180 days; periodic cleanup can take additional time. Backups may retain copies until they are rotated, and a privacy deletion must be reapplied before a backup is restored into active use. The backup rotation and deletion procedures remain release checks.</p>
+<p>You can request access or deletion by emailing <a href="mailto:can@creamcoff.com?subject=Brew%20Crew%20privacy%20request">can@creamcoff.com</a>. Include the analytics installation identifier shown in Settings if you want us to locate your gameplay events. Do not send a password, payment-card details or purchase token. We may need further information to verify a request. Uninstalling the app does not itself delete server events, iCloud data or operating-system backups.</p>
+<p>If you email support, we use the information you choose to send to respond and investigate your request. Do not include sensitive information that is unnecessary for the issue.</p>
 
-<h2>Your choices</h2>
-<ul>
-  <li>Opt out of gameplay statistics in Settings at any time.</li>
-  <li>Uninstalling the app deletes all local data; iCloud saves can be removed in
-      iOS Settings → Apple ID → iCloud.</li>
-  <li>Questions or a data request? Contact <a href="mailto:can@creamcoff.com">can@creamcoff.com</a>
-      — include your random install ID if you have it (we cannot look you up otherwise,
-      by design).</li>
-</ul>
-
-<p><a href="index.html">Back to Support</a></p>
+<h2>Changes</h2>
+<p>We update this page when the game's data handling changes. Store disclosures must match the actual released builds and connected services. This page does not mean that new account or purchase features have been activated.</p>
 </body>
 </html>
